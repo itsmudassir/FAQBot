@@ -18,8 +18,8 @@ const connector = new builder.ChatConnector({
 server.post('/api/messages', connector.listen());
 
 const recognizer = new cognitiveServices.QnAMakerRecognizer({
-    knowledgeBaseId: process.env.KNOWLEDGE_BASE_ID,
-    subscriptionKey: process.env.SUBSCRIPTION_KEY,
+    knowledgeBaseId: '418821ba-1874-40e4-8769-7b765096b368',
+    subscriptionKey: '942bed8c648c4869bd211bd556ce506f',
 });
 
 const qnaMakerDialog = new cognitiveServices.QnAMakerDialog({
