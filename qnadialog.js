@@ -6,7 +6,7 @@ module.exports = (session, args, next) => {
     session.sendTyping();
     const question = session.message.text;
     const bodyText = JSON.stringify({question: question});
-    const uri = `https://westus.api.cognitive.microsoft.com/qnamaker/v1.0/knowledgebases/${process.env.KBID}/generateAnswer`;
+    const uri = `https://westus.api.cognitive.microsoft.com/qnamaker/v1.0/knowledgebases/${process.env.QnAKnowledgebaseId}/generateAnswer`;
     console.log(uri);
 
     request.post(uri, { body: bodyText }, (err, code, body) => {
@@ -25,6 +25,6 @@ module.exports = (session, args, next) => {
                 session.endConversation(`I don't have that answer.`);
             }
         }
-    }).setHeader('Ocp-Apim-Subscription-Key', process.env.SUBSCRIPTION_KEY);
+    }).setHeader('Ocp-Apim-Subscription-Key', process.env.QnASubscriptionKey);
 };
 
